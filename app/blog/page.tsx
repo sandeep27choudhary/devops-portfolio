@@ -1,189 +1,127 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { Metadata } from "next"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import Image from "next/image"
+import { Calendar, Clock, ArrowRight } from "lucide-react"
 
-const blogPosts = [
+export const metadata: Metadata = {
+  title: "DevOps Blog | Cloud Architecture, Infrastructure, and Best Practices",
+  description: "Explore articles on AWS, Kubernetes, Terraform, and DevOps best practices. Learn about cloud architecture, infrastructure as code, and continuous integration.",
+}
+
+const featuredPosts = [
   {
-    id: "aws-multi-account-strategy",
-    title: "Implementing a Secure AWS Multi-Account Strategy",
-    description: "A comprehensive guide to setting up and managing multiple AWS accounts using AWS Organizations, focusing on security best practices and efficient resource management.",
-    image: "/placeholder.svg?height=400&width=600",
-    date: "March 2024",
+    title: "AWS Multi-Account Strategy: Best Practices for Enterprise",
+    description: "Learn how to implement a secure and efficient multi-account strategy in AWS for enterprise organizations.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2074&auto=format&fit=crop",
+    category: "AWS",
     readTime: "10 min read",
-    tags: ["AWS", "Security", "Cloud Architecture"],
-    featured: true,
+    href: "/blog/aws-multi-account-strategy",
   },
   {
-    id: "kubernetes-best-practices",
-    title: "Kubernetes Deployment Best Practices for Production",
-    description: "Learn about essential Kubernetes deployment strategies, including resource management, security configurations, and monitoring setup for production environments.",
-    image: "/placeholder.svg?height=400&width=600",
-    date: "February 2024",
+    title: "Kubernetes Best Practices for Production Workloads",
+    description: "Essential best practices for running Kubernetes in production, from security to scaling.",
+    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=2074&auto=format&fit=crop",
+    category: "Kubernetes",
     readTime: "8 min read",
-    tags: ["Kubernetes", "DevOps", "Containers"],
-    featured: true,
+    href: "/blog/kubernetes-best-practices",
   },
   {
-    id: "cicd-pipeline-optimization",
-    title: "Optimizing CI/CD Pipelines with Jenkins and GitHub",
-    description: "Deep dive into creating efficient CI/CD pipelines using Jenkins and GitHub, with real-world examples and performance optimization techniques.",
-    image: "/placeholder.svg?height=400&width=600",
-    date: "January 2024",
+    title: "Terraform Infrastructure as Code: A Comprehensive Guide",
+    description: "Master infrastructure as code with Terraform, from basic concepts to advanced patterns.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    category: "Terraform",
     readTime: "12 min read",
-    tags: ["CI/CD", "Jenkins", "Automation"],
-    featured: true,
+    href: "/blog/terraform-infrastructure",
   },
   {
-    id: "terraform-infrastructure",
-    title: "Infrastructure as Code with Terraform",
-    description: "A practical guide to managing cloud infrastructure using Terraform, including state management, module organization, and automation strategies.",
-    image: "/placeholder.svg?height=400&width=600",
-    date: "December 2023",
-    readTime: "15 min read",
-    tags: ["Terraform", "IaC", "Cloud"],
+    title: "CICD Pipeline Optimization: Speed Up Your Deployments",
+    description: "Learn how to optimize your CI/CD pipeline for faster and more reliable deployments.",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+    category: "DevOps",
+    readTime: "9 min read",
+    href: "/blog/cicd-pipeline-optimization",
   },
   {
-    id: "monitoring-cloudwatch",
-    title: "Advanced AWS CloudWatch Monitoring Techniques",
-    description: "Learn how to implement comprehensive monitoring solutions using CloudWatch, including custom metrics, dashboards, and alerting strategies.",
-    image: "/placeholder.svg?height=400&width=600",
-    date: "November 2023",
-    readTime: "10 min read",
-    tags: ["Monitoring", "AWS", "CloudWatch"],
-  },
-  {
-    id: "devops-team-building",
-    title: "Building and Leading Effective DevOps Teams",
-    description: "Insights and strategies for building, managing, and mentoring successful DevOps teams, based on real-world experience.",
-    image: "/placeholder.svg?height=400&width=600",
-    date: "October 2023",
-    readTime: "8 min read",
-    tags: ["Leadership", "DevOps Culture", "Team Management"],
+    title: "CloudWatch Monitoring: Best Practices for AWS",
+    description: "Comprehensive guide to monitoring your AWS infrastructure using CloudWatch.",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop",
+    category: "AWS",
+    readTime: "7 min read",
+    href: "/blog/monitoring-cloudwatch",
   },
 ]
 
 export default function BlogPage() {
   return (
-    <div className="container px-4 md:px-6 py-12 md:py-24 max-w-7xl mx-auto">
-      <div className="space-y-12">
-        <div className="space-y-4">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Blog & Articles</h1>
-          <p className="text-muted-foreground text-lg max-w-3xl">
-            Technical insights and experiences from my journey in cloud infrastructure and DevOps engineering.
-            Practical guides, best practices, and lessons learned.
-          </p>
-        </div>
+    <div className="container max-w-7xl mx-auto px-4 py-12">
+      {/* Hero Section */}
+      <div className="text-center space-y-4 mb-16">
+        <h1 className="text-4xl font-bold tracking-tight">
+          DevOps & Cloud Engineering Blog
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Explore articles on cloud architecture, infrastructure as code, and DevOps best practices.
+          Learn from real-world experiences and stay updated with the latest trends.
+        </p>
+      </div>
 
-        {/* Featured Post */}
-        <div className="rounded-lg border border-border/40 bg-card overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="aspect-video overflow-hidden bg-muted">
-              <img
-                src={blogPosts[0].image}
-                alt={blogPosts[0].title}
-                className="object-cover h-full w-full"
-              />
-            </div>
-            <div className="p-6 flex flex-col justify-center">
-              <div className="space-y-4">
-                <div className="space-y-2">
+      {/* Featured Posts Grid */}
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {featuredPosts.map((post) => (
+          <Link key={post.href} href={post.href}>
+            <Card className="h-full hover:shadow-lg transition-shadow duration-200">
+              <div className="relative h-48 w-full">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover rounded-t-lg"
+                />
+                <div className="absolute top-4 left-4">
+                  <Badge variant="secondary" className="bg-white/90 hover:bg-white">
+                    {post.category}
+                  </Badge>
+                </div>
+              </div>
+              <CardHeader>
+                <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                <CardDescription className="line-clamp-2">
+                  {post.description}
+                </CardDescription>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mt-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-muted-foreground">{blogPosts[0].date}</span>
-                    <span className="text-sm text-muted-foreground">•</span>
-                    <span className="text-sm text-muted-foreground">{blogPosts[0].readTime}</span>
+                    <Calendar className="h-4 w-4" />
+                    <span>March 8, 2024</span>
                   </div>
-                  <h2 className="text-2xl font-bold">{blogPosts[0].title}</h2>
-                  <p className="text-muted-foreground">{blogPosts[0].description}</p>
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    <span>{post.readTime}</span>
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {blogPosts[0].tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="pt-4">
-                  <Button asChild variant="outline">
-                    <Link href={`/blog/${blogPosts[0].id}`}>
-                      Read More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              </CardHeader>
+              <CardContent>
+                <Button variant="ghost" className="w-full justify-between">
+                  Read More
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
 
-        {/* Recent Posts Grid */}
-        <div>
-          <h2 className="text-2xl font-bold mb-8">Recent Articles</h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.slice(1).map((post) => (
-              <div
-                key={post.id}
-                className="group relative overflow-hidden rounded-lg border border-border/40 bg-background shadow-sm transition-all hover:shadow-md"
-              >
-                <div className="aspect-video overflow-hidden bg-muted">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="object-cover transition-transform group-hover:scale-105"
-                    width={600}
-                    height={400}
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="text-sm text-muted-foreground">{post.date}</span>
-                    <span className="text-sm text-muted-foreground">•</span>
-                    <span className="text-sm text-muted-foreground">{post.readTime}</span>
-                  </div>
-                  <h3 className="text-xl font-bold">{post.title}</h3>
-                  <p className="mt-2 text-muted-foreground">{post.description}</p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-6">
-                    <Button asChild variant="outline" size="sm">
-                      <Link href={`/blog/${post.id}`}>
-                        Read More
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Newsletter Signup */}
-        <div className="rounded-lg border border-border/40 bg-card p-8 text-center">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <h2 className="text-2xl font-bold">Subscribe to My Newsletter</h2>
-            <p className="text-muted-foreground">
-              Get the latest articles and insights about cloud infrastructure, DevOps practices, and technical leadership
-              delivered directly to your inbox.
-            </p>
-            <Button asChild size="lg">
-              <Link href="/contact">
-                Subscribe Now
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
+      {/* Newsletter Section */}
+      <div className="mt-16 text-center">
+        <h2 className="text-2xl font-semibold mb-4">Stay Updated</h2>
+        <p className="text-muted-foreground mb-6">
+          Subscribe to our newsletter for the latest articles and insights.
+        </p>
+        <Button size="lg">
+          Subscribe to Newsletter
+        </Button>
       </div>
     </div>
   )
