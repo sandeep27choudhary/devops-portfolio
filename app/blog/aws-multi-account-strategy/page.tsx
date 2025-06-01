@@ -173,7 +173,7 @@ aws organizations create-account --email account@example.com --account-name "Dev
         <div className="border-t border-border/40 pt-8 mt-8">
           <div className="flex items-center gap-4">
             <div className="rounded-full bg-muted h-12 w-12 overflow-hidden">
-              <img src="/placeholder.svg" alt="Author" className="h-full w-full object-cover" />
+              <img src="https://loremflickr.com/80/80/person,portrait,tech" alt="Author" className="h-full w-full object-cover" />
             </div>
             <div>
               <h3 className="font-semibold">Sandeep Choudhary</h3>

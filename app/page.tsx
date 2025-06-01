@@ -2,8 +2,43 @@ import Link from "next/link"
 import { ArrowRight, Server, Cloud, GitBranch } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ParticlesBackground from "@/components/particles-background"
+import { fetchPexelsImage } from "@/lib/pexels"
 
-export default function Home() {
+const featuredProjects = [
+  {
+    title: "CI/CD Pipeline for Next.js Apps",
+    description: "Automated deployment workflow using GitHub Actions and AWS",
+    image: "https://loremflickr.com/600/400/devops,automation,pipeline",
+    tags: ["GitHub Actions", "AWS", "Next.js"],
+    href: "/portfolio/nextjs-cicd",
+  },
+  {
+    title: "Infrastructure as Code with Terraform",
+    description: "Scalable and maintainable infrastructure using Terraform and Terragrunt",
+    image: "https://loremflickr.com/600/400/terraform,infrastructure,cloud",
+    tags: ["Terraform", "Terragrunt", "AWS"],
+    href: "/portfolio/terraform-iac",
+  },
+  {
+    title: "Kubernetes & Helm Deployments",
+    description: "Streamlined application deployment with Kubernetes and Helm charts",
+    image: "https://loremflickr.com/600/400/kubernetes,helm,cloud",
+    tags: ["Kubernetes", "Helm", "EKS"],
+    href: "/portfolio/kubernetes-helm",
+  },
+]
+
+export default async function Home() {
+  const projectsWithImages = await Promise.all(
+    featuredProjects.map(async (project) => {
+      const pexelsImage = await fetchPexelsImage(project.title)
+      return {
+        ...project,
+        image: pexelsImage || project.image,
+      }
+    })
+  )
+
   return (
     <div className="relative">
       <ParticlesBackground />
@@ -76,112 +111,38 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="group relative overflow-hidden rounded-lg border border-border/40 bg-background shadow-sm transition-all hover:shadow-md">
-              <div className="aspect-video overflow-hidden bg-muted">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="CI/CD Pipeline for Next.js"
-                  className="object-cover transition-transform group-hover:scale-105"
-                  width={600}
-                  height={400}
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">CI/CD Pipeline for Next.js Apps</h3>
-                <p className="mt-2 text-muted-foreground">Automated deployment workflow using GitHub Actions and AWS</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    GitHub Actions
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    AWS
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    Next.js
-                  </span>
+            {projectsWithImages.map((project) => (
+              <div className="group relative overflow-hidden rounded-lg border border-border/40 bg-background shadow-sm transition-all hover:shadow-md" key={project.title}>
+                <div className="aspect-video overflow-hidden bg-muted">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover transition-transform group-hover:scale-105"
+                    width={600}
+                    height={400}
+                  />
                 </div>
-                <div className="mt-6">
-                  <Button asChild variant="outline" size="sm">
-                    <Link href="/portfolio/nextjs-cicd">
-                      View Case Study
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold">{project.title}</h3>
+                  <p className="mt-2 text-muted-foreground">{project.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-6">
+                    <Button asChild variant="outline" size="sm">
+                      <Link href={project.href}>
+                        View Case Study
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg border border-border/40 bg-background shadow-sm transition-all hover:shadow-md">
-              <div className="aspect-video overflow-hidden bg-muted">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Terraform Infrastructure"
-                  className="object-cover transition-transform group-hover:scale-105"
-                  width={600}
-                  height={400}
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Infrastructure as Code with Terraform</h3>
-                <p className="mt-2 text-muted-foreground">
-                  Scalable and maintainable infrastructure using Terraform and Terragrunt
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    Terraform
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    Terragrunt
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    AWS
-                  </span>
-                </div>
-                <div className="mt-6">
-                  <Button asChild variant="outline" size="sm">
-                    <Link href="/portfolio/terraform-iac">
-                      View Case Study
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg border border-border/40 bg-background shadow-sm transition-all hover:shadow-md">
-              <div className="aspect-video overflow-hidden bg-muted">
-                <img
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Kubernetes Deployment"
-                  className="object-cover transition-transform group-hover:scale-105"
-                  width={600}
-                  height={400}
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Kubernetes & Helm Deployments</h3>
-                <p className="mt-2 text-muted-foreground">
-                  Streamlined application deployment with Kubernetes and Helm charts
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    Kubernetes
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    Helm
-                  </span>
-                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
-                    EKS
-                  </span>
-                </div>
-                <div className="mt-6">
-                  <Button asChild variant="outline" size="sm">
-                    <Link href="/portfolio/kubernetes-helm">
-                      View Case Study
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="mt-12 flex justify-center">
             <Button asChild>

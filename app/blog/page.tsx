@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, ArrowRight } from "lucide-react"
+import { fetchPexelsImage } from "@/lib/pexels"
 
 export const metadata: Metadata = {
   title: "DevOps Blog | Cloud Architecture, Infrastructure, and Best Practices",
@@ -15,7 +16,7 @@ const featuredPosts = [
   {
     title: "AWS Multi-Account Strategy: Best Practices for Enterprise",
     description: "Learn how to implement a secure and efficient multi-account strategy in AWS for enterprise organizations.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2074&auto=format&fit=crop",
+    image: "https://loremflickr.com/600/400/aws,cloud,security",
     category: "AWS",
     readTime: "10 min read",
     href: "/blog/aws-multi-account-strategy",
@@ -23,7 +24,7 @@ const featuredPosts = [
   {
     title: "Kubernetes Best Practices for Production Workloads",
     description: "Essential best practices for running Kubernetes in production, from security to scaling.",
-    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=2074&auto=format&fit=crop",
+    image: "https://loremflickr.com/600/400/kubernetes,cloud,production",
     category: "Kubernetes",
     readTime: "8 min read",
     href: "/blog/kubernetes-best-practices",
@@ -31,7 +32,7 @@ const featuredPosts = [
   {
     title: "Terraform Infrastructure as Code: A Comprehensive Guide",
     description: "Master infrastructure as code with Terraform, from basic concepts to advanced patterns.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    image: "https://loremflickr.com/600/400/terraform,infrastructure,code",
     category: "Terraform",
     readTime: "12 min read",
     href: "/blog/terraform-infrastructure",
@@ -39,7 +40,7 @@ const featuredPosts = [
   {
     title: "CICD Pipeline Optimization: Speed Up Your Deployments",
     description: "Learn how to optimize your CI/CD pipeline for faster and more reliable deployments.",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+    image: "https://loremflickr.com/600/400/devops,cicd,pipeline",
     category: "DevOps",
     readTime: "9 min read",
     href: "/blog/cicd-pipeline-optimization",
@@ -47,14 +48,25 @@ const featuredPosts = [
   {
     title: "CloudWatch Monitoring: Best Practices for AWS",
     description: "Comprehensive guide to monitoring your AWS infrastructure using CloudWatch.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop",
+    image: "https://loremflickr.com/600/400/aws,cloudwatch,monitoring",
     category: "AWS",
     readTime: "7 min read",
     href: "/blog/monitoring-cloudwatch",
   },
 ]
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  // Fetch Pexels images for each featured post
+  const postsWithImages = await Promise.all(
+    featuredPosts.map(async (post) => {
+      const pexelsImage = await fetchPexelsImage(post.title)
+      return {
+        ...post,
+        image: pexelsImage || post.image,
+      }
+    })
+  )
+
   return (
     <div className="container max-w-7xl mx-auto px-4 py-12">
       {/* Hero Section */}
@@ -70,7 +82,7 @@ export default function BlogPage() {
 
       {/* Featured Posts Grid */}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {featuredPosts.map((post) => (
+        {postsWithImages.map((post) => (
           <Link key={post.href} href={post.href}>
             <Card className="h-full hover:shadow-lg transition-shadow duration-200">
               <div className="relative h-48 w-full">

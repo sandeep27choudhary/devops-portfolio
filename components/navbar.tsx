@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
+  { href: "https://news.duhops.world", label: "News", external: true },
 ]
 
 export default function Navbar() {
@@ -48,14 +49,25 @@ export default function Navbar() {
             <ul className="flex space-x-8">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`text-sm font-medium transition-colors hover:text-primary ${
-                      pathname === link.href ? "text-primary" : "text-foreground/70"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium transition-colors hover:text-primary text-foreground/70"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={`text-sm font-medium transition-colors hover:text-primary ${
+                        pathname === link.href ? "text-primary" : "text-foreground/70"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -79,16 +91,29 @@ export default function Navbar() {
         <div className="md:hidden">
           <div className="space-y-1 px-4 pb-3 pt-2 bg-background/95 backdrop-blur-sm">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block py-2 text-base font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-foreground/70"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-2 text-base font-medium transition-colors hover:text-primary text-foreground/70"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block py-2 text-base font-medium transition-colors hover:text-primary ${
+                    pathname === link.href ? "text-primary" : "text-foreground/70"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </div>
         </div>

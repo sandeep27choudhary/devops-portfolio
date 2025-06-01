@@ -1,13 +1,14 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { fetchPexelsImage } from "@/lib/pexels"
 
 const projects = [
   {
     id: "aws-multi-account",
     title: "AWS Multi-Account Management",
     description: "Implemented a comprehensive AWS multi-account strategy for secure and efficient product deployments at 2070health",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://loremflickr.com/600/400/aws,cloud,security",
     tags: ["AWS Organizations", "IAM", "Security", "Terraform"],
     featured: true,
   },
@@ -15,7 +16,7 @@ const projects = [
     id: "kubernetes-deployment",
     title: "Kubernetes Deployment Architecture",
     description: "Designed and implemented containerized application deployment using Kubernetes at Xenonstack",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://loremflickr.com/600/400/kubernetes,containers,cloud",
     tags: ["Kubernetes", "Docker", "Microservices", "DevOps"],
     featured: true,
   },
@@ -23,7 +24,7 @@ const projects = [
     id: "cicd-automation",
     title: "CI/CD Pipeline Automation",
     description: "Built robust CI/CD pipelines using Jenkins, GitHub, and AWS DevOps services for automated deployments",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://loremflickr.com/600/400/devops,automation,pipeline",
     tags: ["Jenkins", "GitHub", "AWS DevOps", "Automation"],
     featured: true,
   },
@@ -31,7 +32,7 @@ const projects = [
     id: "cloud-automation",
     title: "Cloud Infrastructure Automation",
     description: "Developed and maintained cloud automation using Serverless, Terraform, and Ansible for infrastructure management",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://loremflickr.com/600/400/cloud,infrastructure,automation",
     tags: ["Terraform", "Ansible", "Serverless", "IaC"],
     featured: false,
   },
@@ -39,7 +40,7 @@ const projects = [
     id: "monitoring-optimization",
     title: "Application Monitoring & Optimization",
     description: "Implemented comprehensive monitoring solutions for application performance and infrastructure optimization",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://loremflickr.com/600/400/monitoring,cloud,performance",
     tags: ["Monitoring", "Performance", "CloudWatch", "Optimization"],
     featured: false,
   },
@@ -47,13 +48,24 @@ const projects = [
     id: "team-leadership",
     title: "Team Leadership & Mentorship",
     description: "Led a team of 7 members and provided mentorship to interns while managing technical deliverables",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://loremflickr.com/600/400/leadership,team,mentorship",
     tags: ["Leadership", "Mentorship", "Team Management", "DevOps Culture"],
     featured: false,
   },
 ]
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  // Fetch Pexels images for each project
+  const projectsWithImages = await Promise.all(
+    projects.map(async (project) => {
+      const pexelsImage = await fetchPexelsImage(project.title)
+      return {
+        ...project,
+        image: pexelsImage || project.image,
+      }
+    })
+  )
+
   return (
     <div className="container px-4 md:px-6 py-12 md:py-24 max-w-7xl mx-auto">
       <div className="space-y-12">
@@ -66,7 +78,7 @@ export default function PortfolioPage() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
+          {projectsWithImages.map((project) => (
             <div
               key={project.id}
               className="group relative overflow-hidden rounded-lg border border-border/40 bg-background shadow-sm transition-all hover:shadow-md"
