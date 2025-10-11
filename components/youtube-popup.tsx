@@ -8,25 +8,16 @@ export default function YoutubePopup() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    // Check if user has already dismissed the popup
-    const hasSeenPopup = localStorage.getItem("hasSeenYoutubePopup")
-    
-    if (!hasSeenPopup) {
-      // Show popup after 3 seconds
-      const timer = setTimeout(() => {
-        setIsVisible(true)
-      }, 3000)
+    // Show popup after 3 seconds on every page load
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 3000)
 
-      return () => clearTimeout(timer)
-    }
+    return () => clearTimeout(timer)
   }, [])
 
   const handleClose = () => {
     setIsVisible(false)
-    // Remember that user has seen the popup (for 7 days)
-    const expiryDate = new Date()
-    expiryDate.setDate(expiryDate.getDate() + 7)
-    localStorage.setItem("hasSeenYoutubePopup", expiryDate.toISOString())
   }
 
   const handleSubscribe = () => {
