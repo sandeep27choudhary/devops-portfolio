@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { FileDown, Award, GraduationCap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -10,7 +11,13 @@ export default function AboutPage() {
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h1>
           <div className="flex items-center space-x-4">
             <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-primary/20">
-              <img src="/placeholder.svg?height=200&width=200" alt="Profile" className="h-full w-full object-cover" />
+              <Image 
+                src="/profile-photo.jpeg" 
+                alt="Sandeep Choudhary - DevOps Engineer" 
+                width={200}
+                height={200}
+                className="h-full w-full object-cover" 
+              />
             </div>
             <div>
               <h2 className="text-2xl font-bold">Sandeep Choudhary</h2>
