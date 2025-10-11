@@ -36,11 +36,11 @@ export default function YoutubePopup() {
       
       {/* Popup */}
       <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90%] max-w-md animate-in zoom-in-95 fade-in duration-300">
-        <div className="relative bg-gradient-to-br from-primary/95 via-primary/90 to-purple-600/90 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-[#001f3f]/95 via-[#6b21a8]/90 to-[#1e3a8a]/90 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
           {/* Decorative background pattern */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-40 h-40 bg-white rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-40 h-40 bg-white rounded-full blur-3xl" />
+            <div className="absolute top-0 left-0 w-40 h-40 bg-purple-400 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-blue-400 rounded-full blur-3xl" />
           </div>
 
           {/* Close button */}
@@ -57,9 +57,16 @@ export default function YoutubePopup() {
             {/* YouTube Icon with animation */}
             <div className="mb-6 flex justify-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-red-500 rounded-full blur-xl opacity-50 animate-pulse" />
+                <div className="absolute inset-0 bg-red-600 rounded-full blur-xl opacity-50 animate-pulse" />
                 <div className="relative bg-white rounded-full p-4">
-                  <Youtube className="h-12 w-12 text-red-600" fill="currentColor" />
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 640 640"
+                    className="h-12 w-12 text-red-600"
+                    fill="currentColor"
+                  >
+                    <path d="M581.7 188.1C575.5 164.4 556.9 145.8 533.4 139.5C490.9 128 320.1 128 320.1 128C320.1 128 149.3 128 106.7 139.5C83.2 145.8 64.7 164.4 58.4 188.1C47 231 47 320.4 47 320.4C47 320.4 47 409.8 58.4 452.7C64.7 476.3 83.2 494.2 106.7 500.5C149.3 512 320.1 512 320.1 512C320.1 512 490.9 512 533.5 500.5C557 494.2 575.5 476.3 581.8 452.7C593.2 409.8 593.2 320.4 593.2 320.4C593.2 320.4 593.2 231 581.8 188.1zM264.2 401.6L264.2 239.2L406.9 320.4L264.2 401.6z"/>
+                  </svg>
                 </div>
               </div>
             </div>
@@ -81,7 +88,14 @@ export default function YoutubePopup() {
               onClick={handleSubscribe}
               className="inline-flex items-center gap-3 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 mb-4"
             >
-              <Youtube className="h-6 w-6" fill="currentColor" />
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 640 640"
+                className="h-6 w-6"
+                fill="currentColor"
+              >
+                <path d="M581.7 188.1C575.5 164.4 556.9 145.8 533.4 139.5C490.9 128 320.1 128 320.1 128C320.1 128 149.3 128 106.7 139.5C83.2 145.8 64.7 164.4 58.4 188.1C47 231 47 320.4 47 320.4C47 320.4 47 409.8 58.4 452.7C64.7 476.3 83.2 494.2 106.7 500.5C149.3 512 320.1 512 320.1 512C320.1 512 490.9 512 533.5 500.5C557 494.2 575.5 476.3 581.8 452.7C593.2 409.8 593.2 320.4 593.2 320.4C593.2 320.4 593.2 231 581.8 188.1zM264.2 401.6L264.2 239.2L406.9 320.4L264.2 401.6z"/>
+              </svg>
               Subscribe Now
             </Link>
 
@@ -92,7 +106,7 @@ export default function YoutubePopup() {
           </div>
 
           {/* Bottom decorative element */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-red-500 to-purple-600" />
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-600 to-red-600" />
         </div>
       </div>
     </>
