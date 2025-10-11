@@ -35,9 +35,9 @@ export default function AboutPage() {
           </p>
           <div className="pt-4">
             <Button asChild variant="outline">
-              <Link href="/resume.pdf" target="_blank">
+              <Link href="https://docs.google.com/document/d/e/2PACX-1vTQOkYZW0e9A6UhROME4YKC8pw5G-Gx0y7HHQTdIeR0b_oD-O3mRY5s_cUsHrcmAQpWtC6BIG6qR6nC/pub" target="_blank" rel="noopener noreferrer">
                 <FileDown className="mr-2 h-4 w-4" />
-                Download Resume
+                View Resume
               </Link>
             </Button>
           </div>
