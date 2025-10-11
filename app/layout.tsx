@@ -9,9 +9,14 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "DevOps Engineer Portfolio",
+  title: "DuhOps World",
   description: "Cloud Infrastructure & DevOps Engineer specializing in AWS, Kubernetes, and CI/CD automation",
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/duhops-logo.jpg',
+    shortcut: '/duhops-logo.jpg',
+    apple: '/duhops-logo.jpg',
+  },
 }
 
 export default function RootLayout({

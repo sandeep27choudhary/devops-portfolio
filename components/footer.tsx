@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <h3 className="text-lg font-semibold text-foreground">
-              DevOps<span className="text-primary">Engineer</span>
+              <span className="text-primary">DuhOps</span> World
             </h3>
             <p className="mt-4 text-sm text-muted-foreground">
               Building scalable, secure, and automated cloud solutions with AWS, Kubernetes, and CI/CD.
@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-border/40 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} DevOps Engineer. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} DuhOps World. All rights reserved.</p>
         </div>
       </div>
     </footer>

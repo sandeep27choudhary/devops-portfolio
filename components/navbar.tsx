@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
@@ -12,6 +13,7 @@ const navLinks = [
   { href: "/experience", label: "Experience" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },
+  { href: "/blog/videos", label: "Videos" },
   { href: "/contact", label: "Contact" },
   { href: "https://news.duhops.world", label: "News", external: true },
 ]
@@ -39,8 +41,18 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-primary">
-              DevOps<span className="text-foreground">Engineer</span>
+            <Link href="/" className="flex items-center gap-3">
+              <Image 
+                src="/duhops-logo.jpg" 
+                alt="DuhOps World Logo" 
+                width={40} 
+                height={40}
+                className="rounded-lg"
+              />
+              <span className="text-xl font-bold">
+                <span className="text-primary">DuhOps</span>
+                <span className="text-foreground"> World</span>
+              </span>
             </Link>
           </div>
 

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
+import { Calendar, Clock, ArrowRight, Play } from "lucide-react"
 import { fetchPexelsImage } from "@/lib/pexels"
 
 export const metadata: Metadata = {
@@ -78,9 +78,41 @@ export default async function BlogPage() {
           Explore articles on cloud architecture, infrastructure as code, and DevOps best practices.
           Learn from real-world experiences and stay updated with the latest trends.
         </p>
+        <div className="flex justify-center gap-4 pt-4">
+          <Button asChild variant="outline" size="lg">
+            <Link href="/blog/videos">
+              <Play className="mr-2 h-5 w-5" />
+              Watch Video Tutorials
+            </Link>
+          </Button>
+        </div>
+      </div>
+
+      {/* Video Section Highlight */}
+      <div className="mb-12 p-8 bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg border border-primary/20">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="rounded-full bg-primary/20 p-4">
+              <Play className="h-8 w-8 text-primary" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-2">Video Tutorials</h2>
+              <p className="text-muted-foreground">
+                Watch hands-on DevOps tutorials and demonstrations
+              </p>
+            </div>
+          </div>
+          <Button asChild size="lg">
+            <Link href="/blog/videos">
+              Watch Now
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
 
       {/* Featured Posts Grid */}
+      <h2 className="text-3xl font-bold mb-8">Latest Articles</h2>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {postsWithImages.map((post) => (
           <Link key={post.href} href={post.href}>
