@@ -101,7 +101,7 @@ export default function YoutubePopup() {
 
             {/* Additional CTA */}
             <p className="text-white/70 text-sm">
-              Don't miss out on the latest content! 👇
+              Don't miss out on the latest content! 👆
             </p>
           </div>
 
