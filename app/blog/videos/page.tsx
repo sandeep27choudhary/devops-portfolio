@@ -192,7 +192,7 @@ export default function VideosPage() {
           for regular updates on cloud infrastructure, automation, and best practices.
         </p>
         <a
-          href="https://youtube.com/@duhopsworld"
+          href="https://www.youtube.com/@duhops"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium"
