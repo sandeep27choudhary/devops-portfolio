@@ -39,6 +39,69 @@ const videos = [
   },
 ]
 
+const shorts = [
+  {
+    id: "W9X6ITg_A1Y",
+    url: "https://www.youtube.com/shorts/W9X6ITg_A1Y",
+    title: "DevOps Quick Tip #1",
+    category: "Shorts",
+  },
+  {
+    id: "9jL0XWdG0vw",
+    url: "https://www.youtube.com/shorts/9jL0XWdG0vw",
+    title: "DevOps Quick Tip #2",
+    category: "Shorts",
+  },
+  {
+    id: "Jv1YQxpeQOs",
+    url: "https://www.youtube.com/shorts/Jv1YQxpeQOs",
+    title: "DevOps Quick Tip #3",
+    category: "Shorts",
+  },
+  {
+    id: "Rvbp4pm7x4M",
+    url: "https://www.youtube.com/shorts/Rvbp4pm7x4M",
+    title: "DevOps Quick Tip #4",
+    category: "Shorts",
+  },
+  {
+    id: "bZs0NJCvJR4",
+    url: "https://www.youtube.com/shorts/bZs0NJCvJR4",
+    title: "DevOps Quick Tip #5",
+    category: "Shorts",
+  },
+  {
+    id: "5LFSihKm3pA",
+    url: "https://www.youtube.com/shorts/5LFSihKm3pA",
+    title: "DevOps Quick Tip #6",
+    category: "Shorts",
+  },
+  {
+    id: "3nbsabaVbYk",
+    url: "https://www.youtube.com/shorts/3nbsabaVbYk",
+    title: "DevOps Quick Tip #7",
+    category: "Shorts",
+  },
+  {
+    id: "sxzliJhZpFI",
+    url: "https://www.youtube.com/shorts/sxzliJhZpFI",
+    title: "DevOps Quick Tip #8",
+    category: "Shorts",
+  },
+  {
+    id: "bYg02X8WDO8",
+    url: "https://www.youtube.com/shorts/bYg02X8WDO8",
+    title: "DevOps Quick Tip #9",
+    category: "Shorts",
+  },
+  {
+    id: "UB9azX-ypXk",
+    url: "https://www.youtube.com/shorts/UB9azX-ypXk",
+    title: "DevOps Quick Tip #10",
+    category: "Shorts",
+  },
+]
+
 export default function VideosPage() {
   return (
     <div className="container max-w-7xl mx-auto px-4 py-12">
@@ -56,39 +119,69 @@ export default function VideosPage() {
         </p>
       </div>
 
-      {/* Videos Grid */}
-      <div className="grid gap-8 md:grid-cols-2">
-        {videos.map((video) => (
-          <Card key={video.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
-            <div className="relative aspect-video w-full bg-muted">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/${video.id}`}
-                title={video.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <CardHeader>
-              <div className="flex items-center justify-between mb-2">
-                <Badge variant="secondary">{video.category}</Badge>
+      {/* Full Videos Section */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold mb-8">Full Tutorials</h2>
+        <div className="grid gap-8 md:grid-cols-2">
+          {videos.map((video) => (
+            <Card key={video.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
+              <div className="relative aspect-video w-full bg-muted">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${video.id}`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
-              <CardTitle>{video.title}</CardTitle>
-              <CardDescription>{video.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <a
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-              >
-                <Play className="h-4 w-4" />
-                Watch on YouTube
-              </a>
-            </CardContent>
-          </Card>
-        ))}
+              <CardHeader>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge variant="secondary">{video.category}</Badge>
+                </div>
+                <CardTitle>{video.title}</CardTitle>
+                <CardDescription>{video.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <a
+                  href={video.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                >
+                  <Play className="h-4 w-4" />
+                  Watch on YouTube
+                </a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Shorts Section */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold mb-4">Quick Tips - YouTube Shorts</h2>
+        <p className="text-muted-foreground mb-8">
+          Bite-sized DevOps tips and tricks in under 60 seconds!
+        </p>
+        <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-5">
+          {shorts.map((short) => (
+            <Card key={short.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
+              <div className="relative aspect-[9/16] w-full bg-muted">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${short.id}`}
+                  title={short.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <CardHeader className="p-4">
+                <Badge variant="secondary" className="w-fit mb-2">{short.category}</Badge>
+                <CardTitle className="text-sm">{short.title}</CardTitle>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
       </div>
 
       {/* Call to Action */}
