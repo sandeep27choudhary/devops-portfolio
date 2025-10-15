@@ -101,93 +101,45 @@ Downloaded from: DuhOps World (https://www.duhops.world)
         </p>
       </div>
 
-      {/* Downloads Grid */}
-      <div className="space-y-6">
+      {/* Downloads Grid - Matrix Layout */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* n8n Workflows Repository */}
-        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20">
-          <CardHeader className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border-b">
-            <div className="flex items-start justify-between">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <Github className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium text-primary">GitHub Repository</span>
-                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">500+ Workflows</span>
-                </div>
-                <CardTitle className="text-2xl mb-2">n8n Workflow Collection - DuhOps World</CardTitle>
-                <CardDescription className="text-base">
-                  Curated collection of 500+ n8n workflow templates for automation, AI, and integrations
-                </CardDescription>
+        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20 flex flex-col">
+          <CardHeader className="bg-gradient-to-br from-green-500/10 to-blue-500/10 border-b">
+            <div className="flex items-center justify-center mb-4">
+              <div className="rounded-full bg-green-500/20 p-4">
+                <Github className="h-10 w-10 text-green-600 dark:text-green-400" />
               </div>
-              <Github className="h-12 w-12 text-muted-foreground/30" />
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">500+ Workflows</span>
+              </div>
+              <CardTitle className="text-xl mb-2">n8n Workflow Collection</CardTitle>
+              <CardDescription className="text-sm">
+                Curated automation templates for AI, integrations, and workflows
+              </CardDescription>
             </div>
           </CardHeader>
           
-          <CardContent className="pt-6">
+          <CardContent className="pt-6 flex-1 flex flex-col">
             {/* Categories Preview */}
-            <div className="mb-6 p-4 bg-muted/50 rounded-lg border border-border/40">
-              <h3 className="font-semibold mb-3 flex items-center gap-2">
-                <FileText className="h-4 w-4" />
-                Categories Included
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                <div className="text-sm">
-                  <div className="font-medium text-foreground mb-1">🤖 AI & Research</div>
-                  <ul className="text-xs text-muted-foreground space-y-0.5">
-                    <li>• AI Research & RAG</li>
-                    <li>• OpenAI & LLMs</li>
-                  </ul>
-                </div>
-                <div className="text-sm">
-                  <div className="font-medium text-foreground mb-1">📧 Communication</div>
-                  <ul className="text-xs text-muted-foreground space-y-0.5">
-                    <li>• Gmail Automation</li>
-                    <li>• Telegram Bots</li>
-                    <li>• WhatsApp Integration</li>
-                    <li>• Slack & Discord</li>
-                  </ul>
-                </div>
-                <div className="text-sm">
-                  <div className="font-medium text-foreground mb-1">📊 Data & Storage</div>
-                  <ul className="text-xs text-muted-foreground space-y-0.5">
-                    <li>• Database Management</li>
-                    <li>• Google Drive & Sheets</li>
-                    <li>• Airtable & Notion</li>
-                  </ul>
-                </div>
-                <div className="text-sm">
-                  <div className="font-medium text-foreground mb-1">🌐 Content & Social</div>
-                  <ul className="text-xs text-muted-foreground space-y-0.5">
-                    <li>• WordPress Automation</li>
-                    <li>• Social Media</li>
-                    <li>• PDF Processing</li>
-                  </ul>
-                </div>
-                <div className="text-sm">
-                  <div className="font-medium text-foreground mb-1">👥 Business Ops</div>
-                  <ul className="text-xs text-muted-foreground space-y-0.5">
-                    <li>• HR & Recruitment</li>
-                    <li>• Forms & Surveys</li>
-                  </ul>
-                </div>
-                <div className="text-sm">
-                  <div className="font-medium text-foreground mb-1">⭐ Highlights</div>
-                  <ul className="text-xs text-muted-foreground space-y-0.5">
-                    <li>• Ready-to-use templates</li>
-                    <li>• Organized by category</li>
-                    <li>• Import instructions</li>
-                  </ul>
+            <div className="mb-6 flex-1">
+              <div className="text-xs text-muted-foreground space-y-2">
+                <p className="font-medium text-foreground">Categories:</p>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="px-2 py-1 bg-muted rounded-full text-xs">🤖 AI & Research</span>
+                  <span className="px-2 py-1 bg-muted rounded-full text-xs">📧 Communication</span>
+                  <span className="px-2 py-1 bg-muted rounded-full text-xs">📊 Data Storage</span>
+                  <span className="px-2 py-1 bg-muted rounded-full text-xs">🌐 Social Media</span>
+                  <span className="px-2 py-1 bg-muted rounded-full text-xs">👥 Business Ops</span>
                 </div>
               </div>
             </div>
 
             {/* Repository Link */}
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-muted-foreground">
-                Platform: <span className="font-medium text-foreground">GitHub</span>
-                <span className="mx-2">•</span>
-                <span className="font-medium text-foreground">⭐ 3 Stars</span>
-              </div>
-              <Button asChild size="lg" className="gap-2">
+            <div className="mt-auto">
+              <Button asChild size="default" className="w-full gap-2">
                 <a 
                   href="https://github.com/sandeep27choudhary/n8n-workflow-duhops-world"
                   target="_blank"
@@ -203,50 +155,41 @@ Downloaded from: DuhOps World (https://www.duhops.world)
         </Card>
 
         {/* AI Prompt Download */}
-        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
-          <CardHeader className="bg-gradient-to-r from-primary/10 to-purple-500/10 border-b">
-            <div className="flex items-start justify-between">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium text-primary">{downloadContent.category}</span>
-                  <span className="text-sm text-muted-foreground">• {downloadContent.date}</span>
-                </div>
-                <CardTitle className="text-2xl mb-2">{downloadContent.title}</CardTitle>
-                <CardDescription className="text-base">
-                  {downloadContent.description}
-                </CardDescription>
+        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 flex flex-col">
+          <CardHeader className="bg-gradient-to-br from-primary/10 to-purple-500/10 border-b">
+            <div className="flex items-center justify-center mb-4">
+              <div className="rounded-full bg-purple-500/20 p-4">
+                <Sparkles className="h-10 w-10 text-purple-600 dark:text-purple-400" />
               </div>
-              <FileText className="h-12 w-12 text-muted-foreground/30" />
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-medium">{downloadContent.category}</span>
+              </div>
+              <CardTitle className="text-xl mb-2">AI Product Architect Prompt</CardTitle>
+              <CardDescription className="text-sm">
+                Complete prompt for AI-assisted product development and low-code platforms
+              </CardDescription>
             </div>
           </CardHeader>
           
-          <CardContent className="pt-6">
+          <CardContent className="pt-6 flex-1 flex flex-col">
             {/* Preview of content */}
-            <div className="mb-6 p-4 bg-muted/50 rounded-lg border border-border/40">
-              <h3 className="font-semibold mb-3 flex items-center gap-2">
-                <FileText className="h-4 w-4" />
-                Preview
-              </h3>
-              <div className="text-sm text-muted-foreground space-y-2 max-h-64 overflow-y-auto">
-                <p className="font-medium text-foreground">What's included:</p>
-                <ul className="list-disc list-inside space-y-1 ml-2">
-                  <li>Complete AI prompt for product architecture</li>
-                  <li>Low-code/No-code platform recommendations</li>
-                  <li>AI tool integration strategies (Lovable.dev, V0.dev, Framer, Bubble, etc.)</li>
-                  <li>Step-by-step execution plan</li>
-                  <li>Cost estimation guidelines</li>
-                  <li>Maintenance and scalability notes</li>
+            <div className="mb-6 flex-1">
+              <div className="text-xs text-muted-foreground space-y-2">
+                <p className="font-medium text-foreground">Includes:</p>
+                <ul className="space-y-1 text-xs">
+                  <li>✓ Product architecture prompts</li>
+                  <li>✓ Low-code/No-code recommendations</li>
+                  <li>✓ AI tool integration strategies</li>
+                  <li>✓ Execution plans & cost estimates</li>
                 </ul>
               </div>
             </div>
 
             {/* Download Button */}
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-muted-foreground">
-                Format: <span className="font-medium text-foreground">Text (.txt)</span>
-              </div>
-              <Button onClick={handleDownload} size="lg" className="gap-2">
+            <div className="mt-auto">
+              <Button onClick={handleDownload} size="default" className="w-full gap-2">
                 <Download className="h-4 w-4" />
                 Download Free
               </Button>
@@ -255,56 +198,42 @@ Downloaded from: DuhOps World (https://www.duhops.world)
         </Card>
 
         {/* DevOps Jumpstart Course */}
-        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20">
-          <CardHeader className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border-b">
-            <div className="flex items-start justify-between">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium text-primary">Learning Path</span>
-                  <span className="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full">Complete Guide</span>
-                </div>
-                <CardTitle className="text-2xl mb-2">DevOps Jumpstart with GitHub, Docker & AWS</CardTitle>
-                <CardDescription className="text-base">
-                  Complete module-by-module structure for your DevOps journey - From beginner to advanced
-                </CardDescription>
+        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20 flex flex-col">
+          <CardHeader className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-b">
+            <div className="flex items-center justify-center mb-4">
+              <div className="rounded-full bg-blue-500/20 p-4">
+                <FileText className="h-10 w-10 text-blue-600 dark:text-blue-400" />
               </div>
-              <FileText className="h-12 w-12 text-muted-foreground/30" />
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full font-medium">Complete Guide</span>
+              </div>
+              <CardTitle className="text-xl mb-2">DevOps Jumpstart Course</CardTitle>
+              <CardDescription className="text-sm">
+                Module-by-module DevOps learning with GitHub, Docker & AWS
+              </CardDescription>
             </div>
           </CardHeader>
           
-          <CardContent className="pt-6">
+          <CardContent className="pt-6 flex-1 flex flex-col">
             {/* Preview of content */}
-            <div className="mb-6 p-4 bg-muted/50 rounded-lg border border-border/40">
-              <h3 className="font-semibold mb-3 flex items-center gap-2">
-                <FileText className="h-4 w-4" />
-                What You'll Learn
-              </h3>
-              <div className="text-sm text-muted-foreground space-y-2">
-                <p className="font-medium text-foreground">Complete DevOps learning modules:</p>
-                <ul className="list-disc list-inside space-y-1 ml-2">
-                  <li>GitHub fundamentals and version control mastery</li>
-                  <li>Docker containerization and orchestration</li>
-                  <li>AWS cloud infrastructure and services</li>
-                  <li>CI/CD pipelines and automation</li>
-                  <li>DevOps best practices and workflows</li>
-                  <li>Hands-on projects and real-world scenarios</li>
-                  <li>Step-by-step module progression</li>
+            <div className="mb-6 flex-1">
+              <div className="text-xs text-muted-foreground space-y-2">
+                <p className="font-medium text-foreground">Topics Covered:</p>
+                <ul className="space-y-1 text-xs">
+                  <li>✓ GitHub & version control</li>
+                  <li>✓ Docker containerization</li>
+                  <li>✓ AWS cloud infrastructure</li>
+                  <li>✓ CI/CD pipelines</li>
+                  <li>✓ Hands-on projects</li>
                 </ul>
-                <p className="text-xs italic pt-2 text-muted-foreground">
-                  📚 Perfect for beginners starting their DevOps journey and professionals looking to structure their learning path
-                </p>
               </div>
             </div>
 
             {/* Link Button */}
-            <div className="flex items-center justify-between">
-              <div className="text-sm text-muted-foreground">
-                Format: <span className="font-medium text-foreground">Google Docs</span>
-                <span className="mx-2">•</span>
-                <span className="font-medium text-foreground">Interactive Guide</span>
-              </div>
-              <Button asChild size="lg" className="gap-2">
+            <div className="mt-auto">
+              <Button asChild size="default" className="w-full gap-2">
                 <a 
                   href="https://docs.google.com/document/d/1kt3CUVPGcKAWb-idevJ7Ll5Y0PR8GPuQqB6_hNJ7NW8/edit?usp=sharing"
                   target="_blank"
@@ -317,8 +246,10 @@ Downloaded from: DuhOps World (https://www.duhops.world)
             </div>
           </CardContent>
         </Card>
+      </div>
 
-        {/* Info Section */}
+      {/* Info Section */}
+      <div className="mt-12">
         <Card className="bg-primary/5 border-primary/20">
           <CardContent className="pt-6">
             <div className="text-center space-y-2">
