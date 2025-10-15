@@ -3,7 +3,7 @@
 import { Metadata } from "next"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Download, FileText, Sparkles } from "lucide-react"
+import { Download, FileText, Sparkles, Github, ExternalLink } from "lucide-react"
 
 const downloadContent = {
   id: "ai-product-architect-prompt",
@@ -103,6 +103,106 @@ Downloaded from: DuhOps World (https://www.duhops.world)
 
       {/* Downloads Grid */}
       <div className="space-y-6">
+        {/* n8n Workflows Repository */}
+        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20">
+          <CardHeader className="bg-gradient-to-r from-green-500/10 to-blue-500/10 border-b">
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <Github className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium text-primary">GitHub Repository</span>
+                  <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">500+ Workflows</span>
+                </div>
+                <CardTitle className="text-2xl mb-2">n8n Workflow Collection - DuhOps World</CardTitle>
+                <CardDescription className="text-base">
+                  Curated collection of 500+ n8n workflow templates for automation, AI, and integrations
+                </CardDescription>
+              </div>
+              <Github className="h-12 w-12 text-muted-foreground/30" />
+            </div>
+          </CardHeader>
+          
+          <CardContent className="pt-6">
+            {/* Categories Preview */}
+            <div className="mb-6 p-4 bg-muted/50 rounded-lg border border-border/40">
+              <h3 className="font-semibold mb-3 flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                Categories Included
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="text-sm">
+                  <div className="font-medium text-foreground mb-1">🤖 AI & Research</div>
+                  <ul className="text-xs text-muted-foreground space-y-0.5">
+                    <li>• AI Research & RAG</li>
+                    <li>• OpenAI & LLMs</li>
+                  </ul>
+                </div>
+                <div className="text-sm">
+                  <div className="font-medium text-foreground mb-1">📧 Communication</div>
+                  <ul className="text-xs text-muted-foreground space-y-0.5">
+                    <li>• Gmail Automation</li>
+                    <li>• Telegram Bots</li>
+                    <li>• WhatsApp Integration</li>
+                    <li>• Slack & Discord</li>
+                  </ul>
+                </div>
+                <div className="text-sm">
+                  <div className="font-medium text-foreground mb-1">📊 Data & Storage</div>
+                  <ul className="text-xs text-muted-foreground space-y-0.5">
+                    <li>• Database Management</li>
+                    <li>• Google Drive & Sheets</li>
+                    <li>• Airtable & Notion</li>
+                  </ul>
+                </div>
+                <div className="text-sm">
+                  <div className="font-medium text-foreground mb-1">🌐 Content & Social</div>
+                  <ul className="text-xs text-muted-foreground space-y-0.5">
+                    <li>• WordPress Automation</li>
+                    <li>• Social Media</li>
+                    <li>• PDF Processing</li>
+                  </ul>
+                </div>
+                <div className="text-sm">
+                  <div className="font-medium text-foreground mb-1">👥 Business Ops</div>
+                  <ul className="text-xs text-muted-foreground space-y-0.5">
+                    <li>• HR & Recruitment</li>
+                    <li>• Forms & Surveys</li>
+                  </ul>
+                </div>
+                <div className="text-sm">
+                  <div className="font-medium text-foreground mb-1">⭐ Highlights</div>
+                  <ul className="text-xs text-muted-foreground space-y-0.5">
+                    <li>• Ready-to-use templates</li>
+                    <li>• Organized by category</li>
+                    <li>• Import instructions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Repository Link */}
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-muted-foreground">
+                Platform: <span className="font-medium text-foreground">GitHub</span>
+                <span className="mx-2">•</span>
+                <span className="font-medium text-foreground">⭐ 3 Stars</span>
+              </div>
+              <Button asChild size="lg" className="gap-2">
+                <a 
+                  href="https://github.com/sandeep27choudhary/n8n-workflow-duhops-world"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4" />
+                  View Repository
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* AI Prompt Download */}
         <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
           <CardHeader className="bg-gradient-to-r from-primary/10 to-purple-500/10 border-b">
             <div className="flex items-start justify-between">
