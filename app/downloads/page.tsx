@@ -254,6 +254,70 @@ Downloaded from: DuhOps World (https://www.duhops.world)
           </CardContent>
         </Card>
 
+        {/* DevOps Jumpstart Course */}
+        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20">
+          <CardHeader className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border-b">
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="h-5 w-5 text-primary" />
+                  <span className="text-sm font-medium text-primary">Learning Path</span>
+                  <span className="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-2 py-1 rounded-full">Complete Guide</span>
+                </div>
+                <CardTitle className="text-2xl mb-2">DevOps Jumpstart with GitHub, Docker & AWS</CardTitle>
+                <CardDescription className="text-base">
+                  Complete module-by-module structure for your DevOps journey - From beginner to advanced
+                </CardDescription>
+              </div>
+              <FileText className="h-12 w-12 text-muted-foreground/30" />
+            </div>
+          </CardHeader>
+          
+          <CardContent className="pt-6">
+            {/* Preview of content */}
+            <div className="mb-6 p-4 bg-muted/50 rounded-lg border border-border/40">
+              <h3 className="font-semibold mb-3 flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                What You'll Learn
+              </h3>
+              <div className="text-sm text-muted-foreground space-y-2">
+                <p className="font-medium text-foreground">Complete DevOps learning modules:</p>
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  <li>GitHub fundamentals and version control mastery</li>
+                  <li>Docker containerization and orchestration</li>
+                  <li>AWS cloud infrastructure and services</li>
+                  <li>CI/CD pipelines and automation</li>
+                  <li>DevOps best practices and workflows</li>
+                  <li>Hands-on projects and real-world scenarios</li>
+                  <li>Step-by-step module progression</li>
+                </ul>
+                <p className="text-xs italic pt-2 text-muted-foreground">
+                  📚 Perfect for beginners starting their DevOps journey and professionals looking to structure their learning path
+                </p>
+              </div>
+            </div>
+
+            {/* Link Button */}
+            <div className="flex items-center justify-between">
+              <div className="text-sm text-muted-foreground">
+                Format: <span className="font-medium text-foreground">Google Docs</span>
+                <span className="mx-2">•</span>
+                <span className="font-medium text-foreground">Interactive Guide</span>
+              </div>
+              <Button asChild size="lg" className="gap-2">
+                <a 
+                  href="https://docs.google.com/document/d/1kt3CUVPGcKAWb-idevJ7Ll5Y0PR8GPuQqB6_hNJ7NW8/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  Access Course
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Info Section */}
         <Card className="bg-primary/5 border-primary/20">
           <CardContent className="pt-6">
