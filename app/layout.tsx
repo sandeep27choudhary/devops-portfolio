@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import YoutubePopup from "@/components/youtube-popup"
+import Chatbot from "@/components/chatbot"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -34,12 +35,10 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
             <YoutubePopup />
+            <Chatbot />
           </div>
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-
-import './globals.css'
