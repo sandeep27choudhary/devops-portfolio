@@ -197,6 +197,56 @@ Downloaded from: DuhOps World (https://www.duhops.world)
           </CardContent>
         </Card>
 
+        {/* Agentic Design Patterns */}
+        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20 flex flex-col">
+          <CardHeader className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border-b">
+            <div className="flex items-center justify-center mb-4">
+              <div className="rounded-full bg-orange-500/20 p-4">
+                <Sparkles className="h-10 w-10 text-orange-600 dark:text-orange-400" />
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-xs bg-orange-500/10 text-orange-600 dark:text-orange-400 px-2 py-1 rounded-full font-medium">AI Knowledge Base</span>
+              </div>
+              <CardTitle className="text-xl mb-2">Agentic Design Patterns</CardTitle>
+              <CardDescription className="text-sm">
+                Comprehensive guide to RAG, agent frameworks, and AI production patterns
+              </CardDescription>
+            </div>
+          </CardHeader>
+          
+          <CardContent className="pt-6 flex-1 flex flex-col">
+            {/* Preview of content */}
+            <div className="mb-6 flex-1">
+              <div className="text-xs text-muted-foreground space-y-2">
+                <p className="font-medium text-foreground">Knowledge Areas:</p>
+                <ul className="space-y-1 text-xs">
+                  <li>✓ Retrieval-Augmented Generation (RAG)</li>
+                  <li>✓ Structured Data Management</li>
+                  <li>✓ Advanced RAG Techniques</li>
+                  <li>✓ Agent Development Frameworks</li>
+                  <li>✓ AI Production Challenges</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Link Button */}
+            <div className="mt-auto">
+              <Button asChild size="default" className="w-full gap-2">
+                <a 
+                  href="https://notebooklm.google.com/notebook/4485a282-32a7-469f-9acd-16cea5ada755"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  Access Knowledge Base
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* DevOps Jumpstart Course */}
         <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200 border-primary/20 flex flex-col">
           <CardHeader className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-b">

@@ -83,7 +83,24 @@ const knowledgeBase = {
     { title: "CI/CD Pipeline Automation", description: "Robust CI/CD pipelines using Jenkins, GitHub, and AWS DevOps" },
     { title: "Cloud Infrastructure Automation", description: "Cloud automation using Serverless, Terraform, and Ansible" },
     { title: "Application Monitoring & Optimization", description: "Comprehensive monitoring solutions for performance optimization" }
-  ]
+  ],
+  downloads: [
+    { title: "n8n Workflow Collection", description: "500+ automation templates for AI, integrations, and workflows", url: "https://github.com/sandeep27choudhary/n8n-workflow-duhops-world" },
+    { title: "AI Product Architect Prompt", description: "Complete prompt for AI-assisted product development", url: "/downloads" },
+    { title: "Agentic Design Patterns", description: "Comprehensive guide to RAG, agent frameworks, and AI production patterns", url: "https://notebooklm.google.com/notebook/4485a282-32a7-469f-9acd-16cea5ada755" },
+    { title: "DevOps Jumpstart Course", description: "Module-by-module DevOps learning with GitHub, Docker & AWS", url: "https://docs.google.com/document/d/1kt3CUVPGcKAWb-idevJ7Ll5Y0PR8GPuQqB6_hNJ7NW8/edit?usp=sharing" }
+  ],
+  agenticAI: {
+    title: "Agentic Design Patterns: Principles and Frameworks",
+    url: "https://notebooklm.google.com/notebook/4485a282-32a7-469f-9acd-16cea5ada755",
+    knowledgeAreas: [
+      "Retrieval-Augmented Generation (RAG) as a Core Technique",
+      "RAG relies on Structured Data Management and Search",
+      "Advanced and Agentic RAG Techniques", 
+      "Ecosystem of Agent Development Frameworks",
+      "Foundational AI Concepts and Production Challenges"
+    ]
+  }
 }
 
 // Smart pattern matching for responses
@@ -204,6 +221,21 @@ ${knowledgeBase.portfolio.map(p => `• **${p.title}**\n  ${p.description}`).joi
 Visit the [Portfolio page](/portfolio) to see detailed case studies!`
   }
 
+  // Downloads/resources questions
+  if (message.match(/download|resource|free|template|workflow|prompt/)) {
+    return `**📥 Free Downloads & Resources:**
+
+${knowledgeBase.downloads.map(d => `• **${d.title}**\n  ${d.description}\n  ${d.url}`).join("\n\n")}
+
+Visit the [Downloads page](/downloads) to access all free resources including:
+• 500+ n8n automation workflows
+• AI product architect prompts
+• Agentic design patterns knowledge base
+• DevOps learning materials
+
+All resources are completely free! 🎉`
+  }
+
   // AWS related questions
   if (message.match(/aws|amazon|cloud|ec2|s3|lambda|eks|ecs/)) {
     return `Sandeep has extensive **AWS expertise** including:
@@ -265,6 +297,31 @@ He developed cloud automation using Terraform and Ansible at Xenonstack.
 Read the comprehensive guide: [Terraform Infrastructure as Code](/blog/terraform-infrastructure)`
   }
 
+  // Agentic AI related questions
+  if (message.match(/agentic|rag|retrieval augmented|ai agent|agent framework|ai production|notebooklm/)) {
+    return `Sandeep has extensive knowledge in **Agentic AI and RAG**! 🤖
+
+**📚 Agentic Design Patterns Knowledge Base:**
+${knowledgeBase.agenticAI.title}
+
+**🔗 Access the comprehensive guide:**
+${knowledgeBase.agenticAI.url}
+
+**📖 Knowledge Areas Covered:**
+${knowledgeBase.agenticAI.knowledgeAreas.map(area => `• ${area}`).join("\n")}
+
+**💡 What you'll learn:**
+• How to implement RAG (Retrieval-Augmented Generation)
+• Advanced agent development frameworks
+• AI production challenges and solutions
+• Structured data management for AI systems
+• Best practices for agentic AI architectures
+
+This knowledge base is perfect for developers, architects, and AI practitioners looking to build intelligent, autonomous systems!
+
+You can also find this resource in the [Downloads section](/downloads) along with other AI and DevOps resources.`
+  }
+
   // Contact/hire questions
   if (message.match(/contact|email|hire|reach|connect|get in touch|availability/)) {
     return `**📧 Get in Touch with Sandeep:**
@@ -299,12 +356,22 @@ Visit the [Contact page](/contact) to send a message directly!
 • Blog articles
 • DevOps tips
 
+**🤖 AI & Technology**
+• Agentic AI and RAG techniques
+• AI production patterns
+• Agent development frameworks
+
+**📥 Free Resources**
+• Downloadable templates and workflows
+• AI prompts and guides
+• Automation scripts
+
 **📞 Contact Information**
 • How to get in touch
 • Availability
 • Social links
 
-Just ask me anything! For example: "Tell me about AWS projects" or "What YouTube videos are available?"`
+Just ask me anything! For example: "Tell me about agentic AI" or "What free resources do you have?"`
   }
 
   // Location
@@ -333,9 +400,11 @@ You can also:
 • Work experience and projects
 • YouTube tutorials on DuhOps World
 • Blog articles on AWS, Kubernetes, Terraform
+• Agentic AI and RAG knowledge
+• Free downloads and resources
 • How to get in touch
 
-Try asking: "What are Sandeep's skills?" or "Show me YouTube videos" or "How can I contact?"`
+Try asking: "What are Sandeep's skills?" or "Tell me about agentic AI" or "What free resources do you have?"`
 }
 
 export default function Chatbot() {
