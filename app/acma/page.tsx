@@ -519,97 +519,99 @@ Would you like me to elaborate on any of these points?`,
 
         {/* AI Chat Tab */}
         <TabsContent value="chat" className="mt-6">
-          <Card className="h-[600px] flex flex-col">
-            <CardHeader className="border-b">
-              <CardTitle className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5 text-purple-600" />
-                AI Assistant
-              </CardTitle>
-              <CardDescription>
-                Ask me anything about content creation!
-              </CardDescription>
-            </CardHeader>
-            
-            <CardContent className="flex-1 flex flex-col p-0">
-              {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                {chatMessages.map((message) => (
-                  <div
-                    key={message.id}
-                    className={`flex gap-3 ${
-                      message.role === 'user' ? 'justify-end' : 'justify-start'
-                    }`}
-                  >
-                    {message.role === 'assistant' && (
+          <div className="flex flex-col h-[600px] min-h-[500px]">
+            <Card className="flex-1 flex flex-col">
+              <CardHeader className="border-b flex-shrink-0">
+                <CardTitle className="flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5 text-purple-600" />
+                  AI Assistant
+                </CardTitle>
+                <CardDescription>
+                  Ask me anything about content creation!
+                </CardDescription>
+              </CardHeader>
+              
+              <CardContent className="flex-1 flex flex-col p-0 min-h-0">
+                {/* Messages */}
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
+                  {chatMessages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`flex gap-3 ${
+                        message.role === 'user' ? 'justify-end' : 'justify-start'
+                      }`}
+                    >
+                      {message.role === 'assistant' && (
+                        <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                          <Bot className="h-4 w-4 text-white" />
+                        </div>
+                      )}
+                      
+                      <div
+                        className={`max-w-[80%] rounded-lg px-4 py-2 break-words ${
+                          message.role === 'user'
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-muted'
+                        }`}
+                      >
+                        <p className="text-sm whitespace-pre-wrap break-words">{message.content}</p>
+                        <p className="text-xs opacity-70 mt-1">
+                          {message.timestamp.toLocaleTimeString()}
+                        </p>
+                      </div>
+
+                      {message.role === 'user' && (
+                        <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                          <User className="h-4 w-4 text-primary-foreground" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                  
+                  {isLoading && (
+                    <div className="flex gap-3 justify-start">
                       <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                         <Bot className="h-4 w-4 text-white" />
                       </div>
-                    )}
-                    
-                    <div
-                      className={`max-w-[80%] rounded-lg px-4 py-2 ${
-                        message.role === 'user'
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-muted'
-                      }`}
-                    >
-                      <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                      <p className="text-xs opacity-70 mt-1">
-                        {message.timestamp.toLocaleTimeString()}
-                      </p>
-                    </div>
-
-                    {message.role === 'user' && (
-                      <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                        <User className="h-4 w-4 text-primary-foreground" />
-                      </div>
-                    )}
-                  </div>
-                ))}
-                
-                {isLoading && (
-                  <div className="flex gap-3 justify-start">
-                    <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Bot className="h-4 w-4 text-white" />
-                    </div>
-                    <div className="bg-muted rounded-lg px-4 py-2">
-                      <div className="flex items-center gap-2">
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                        <span className="text-sm">Thinking...</span>
+                      <div className="bg-muted rounded-lg px-4 py-2">
+                        <div className="flex items-center gap-2">
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <span className="text-sm">Thinking...</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Input */}
-              <div className="border-t p-4">
-                <div className="flex gap-2">
-                  <Textarea
-                    value={chatInput}
-                    onChange={(e) => setChatInput(e.target.value)}
-                    placeholder="Ask me anything about content creation..."
-                    className="flex-1 min-h-[60px] resize-none"
-                    disabled={isLoading}
-                    onKeyPress={(e) => {
-                      if (e.key === 'Enter' && !e.shiftKey) {
-                        e.preventDefault()
-                        sendChatMessage()
-                      }
-                    }}
-                  />
-                  <Button
-                    onClick={sendChatMessage}
-                    disabled={!chatInput.trim() || isLoading}
-                    size="lg"
-                    className="px-4"
-                  >
-                    <Send className="h-4 w-4" />
-                  </Button>
+                  )}
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+
+                {/* Input */}
+                <div className="border-t p-4 flex-shrink-0">
+                  <div className="flex gap-2">
+                    <Textarea
+                      value={chatInput}
+                      onChange={(e) => setChatInput(e.target.value)}
+                      placeholder="Ask me anything about content creation..."
+                      className="flex-1 min-h-[60px] max-h-[120px] resize-none"
+                      disabled={isLoading}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                          e.preventDefault()
+                          sendChatMessage()
+                        }
+                      }}
+                    />
+                    <Button
+                      onClick={sendChatMessage}
+                      disabled={!chatInput.trim() || isLoading}
+                      size="lg"
+                      className="px-4 self-end"
+                    >
+                      <Send className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </TabsContent>
       </Tabs>
     </div>
