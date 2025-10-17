@@ -1,8 +1,9 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { X, Send, MessageCircle, Bot, User } from "lucide-react"
+import { X, Send, MessageCircle, Bot, User, ExternalLink, Sparkles, Edit } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 interface Message {
   id: string
@@ -100,6 +101,20 @@ const knowledgeBase = {
       "Ecosystem of Agent Development Frameworks",
       "Foundational AI Concepts and Production Challenges"
     ]
+  },
+  aiTools: {
+    chatAgent: {
+      title: "AI Chat Agent",
+      description: "Interactive DevOps assistant for technical questions",
+      url: "/chatagent",
+      features: ["Real-time chat", "DevOps expertise", "Quick answers", "Technical guidance"]
+    },
+    acmaCreator: {
+      title: "ACMA Content Creator",
+      description: "AI-powered content generation and refinement",
+      url: "/acma",
+      features: ["Content ideas", "Draft generation", "Text refinement", "AI chat assistant"]
+    }
   }
 }
 
@@ -337,6 +352,30 @@ Visit the [Contact page](/contact) to send a message directly!
 **Resume:** [View Resume](${knowledgeBase.owner.resume})`
   }
 
+  // AI Tools questions
+  if (message.match(/ai tool|chat agent|acma|content creator|ai assistant|advanced chat|full chat/)) {
+    return `**🤖 AI Tools Available:**
+
+**1. AI Chat Agent** (/chatagent)
+• Interactive DevOps assistant
+• Real-time technical guidance
+• Quick answers to complex questions
+• Full-screen chat experience
+
+**2. ACMA Content Creator** (/acma)
+• AI-powered content generation
+• Content ideas and brainstorming
+• Draft creation and refinement
+• Built-in AI chat assistant
+
+**🚀 Try them out:**
+• Visit /chatagent for technical DevOps chat
+• Visit /acma for content creation tools
+• Both include advanced AI capabilities
+
+These tools provide enhanced AI experiences beyond this quick chat!`
+  }
+
   // Help/what can you do
   if (message.match(/help|what can|how can|assist|support/)) {
     return `I can help you with information about:
@@ -360,6 +399,7 @@ Visit the [Contact page](/contact) to send a message directly!
 • Agentic AI and RAG techniques
 • AI production patterns
 • Agent development frameworks
+• Advanced AI tools (/chatagent, /acma)
 
 **📥 Free Resources**
 • Downloadable templates and workflows
@@ -371,7 +411,7 @@ Visit the [Contact page](/contact) to send a message directly!
 • Availability
 • Social links
 
-Just ask me anything! For example: "Tell me about agentic AI" or "What free resources do you have?"`
+Just ask me anything! For example: "Tell me about agentic AI" or "What AI tools do you have?"`
   }
 
   // Location
@@ -401,10 +441,11 @@ You can also:
 • YouTube tutorials on DuhOps World
 • Blog articles on AWS, Kubernetes, Terraform
 • Agentic AI and RAG knowledge
+• Advanced AI tools (/chatagent, /acma)
 • Free downloads and resources
 • How to get in touch
 
-Try asking: "What are Sandeep's skills?" or "Tell me about agentic AI" or "What free resources do you have?"`
+Try asking: "What are Sandeep's skills?" or "Tell me about agentic AI" or "What AI tools do you have?"`
 }
 
 export default function Chatbot() {
@@ -412,7 +453,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hello! 👋 I'm Sandeep's AI assistant. I can answer questions about his DevOps expertise, projects, YouTube tutorials, and more. What would you like to know?",
+      text: "Hello! 👋 I'm Sandeep's AI assistant. I can answer questions about his DevOps expertise, projects, YouTube tutorials, and more. \n\nFor advanced AI features, try:\n• /chatagent - Full DevOps chat experience\n• /acma - AI content creation tools\n\nWhat would you like to know?",
       sender: "bot",
       timestamp: new Date()
     }
@@ -553,6 +594,25 @@ export default function Chatbot() {
               </div>
             )}
             <div ref={messagesEndRef} />
+          </div>
+
+          {/* Quick Actions */}
+          <div className="border-t p-3 bg-muted/30">
+            <p className="text-xs text-muted-foreground mb-2">Quick Actions:</p>
+            <div className="flex gap-2">
+              <Link href="/chatagent">
+                <Button size="sm" variant="outline" className="text-xs h-7 px-2">
+                  <Bot className="h-3 w-3 mr-1" />
+                  Chat Agent
+                </Button>
+              </Link>
+              <Link href="/acma">
+                <Button size="sm" variant="outline" className="text-xs h-7 px-2">
+                  <Sparkles className="h-3 w-3 mr-1" />
+                  ACMA Creator
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Input */}
