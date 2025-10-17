@@ -1,0 +1,37 @@
+{
+  "name": "acma-content-creator",
+  "version": "1.0.0",
+  "description": "A modern AI-powered content creation application that integrates with the ACMA API",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 3000 -o",
+    "dev": "http-server -p 3000 -o -c-1",
+    "build": "echo 'No build process needed - static files only'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "ai",
+    "content-creation",
+    "acma",
+    "api",
+    "javascript",
+    "tailwindcss",
+    "responsive-design"
+  ],
+  "author": "ACMA Content Creator",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/acma-content-creator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/acma-content-creator/issues"
+  },
+  "homepage": "https://github.com/your-username/acma-content-creator#readme"
+}

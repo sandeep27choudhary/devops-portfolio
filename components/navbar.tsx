@@ -15,6 +15,8 @@ const navLinks = [
   { href: "/blog", label: "Blog" },
   { href: "/blog/videos", label: "Videos" },
   { href: "/downloads", label: "Downloads" },
+  { href: "/chatagent", label: "Chat Agent" },
+  { href: "/acma", label: "ACMA Creator" },
   { href: "/contact", label: "Contact" },
   { href: "https://news.duhops.world", label: "News", external: true },
 ]

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACMA Content Creator - Demo Mode</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .demo-banner {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Demo Banner -->
+    <div class="demo-banner text-white py-3 text-center">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-center space-x-2">
+                <i class="fas fa-flask text-white"></i>
+                <span class="font-semibold">DEMO MODE - Mock API Responses</span>
+                <i class="fas fa-info-circle text-white"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-brain text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">ACMA Content Creator</h1>
+                        <p class="text-purple-100 text-sm">AI-Powered Content Generation</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2 bg-white/20 rounded-full px-4 py-2">
+                        <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                        <span class="text-sm">Demo Mode</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Features Overview -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">✨ Features Overview</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Experience the power of AI-driven content creation with our modern, intuitive interface
+            </p>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Content Ideas -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-lightbulb text-white text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Content Ideas</h3>
+                <p class="text-gray-600 text-sm">Generate creative content ideas based on your domain and target audience</p>
+            </div>
+
+            <!-- Content Drafting -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-edit text-white text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Content Drafting</h3>
+                <p class="text-gray-600 text-sm">Create compelling content with customizable tone and style options</p>
+            </div>
+
+            <!-- Text Refinement -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-magic text-white text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Text Refinement</h3>
+                <p class="text-gray-600 text-sm">Polish and improve existing content with AI-powered suggestions</p>
+            </div>
+
+            <!-- AI Chat -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-comments text-white text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">AI Chat</h3>
+                <p class="text-gray-600 text-sm">Get instant guidance and support from our AI assistant</p>
+            </div>
+        </div>
+
+        <!-- Demo Instructions -->
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-rocket text-white text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Try the Demo</h2>
+                <p class="text-gray-600">Click the button below to experience the full application</p>
+            </div>
+
+            <div class="text-center">
+                <a href="index.html" class="inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-200 transform hover:scale-105">
+                    <i class="fas fa-play mr-2"></i>
+                    Launch Demo Application
+                </a>
+            </div>
+        </div>
+
+        <!-- Technical Details -->
+        <div class="bg-gray-800 text-white rounded-xl p-8">
+            <h3 class="text-2xl font-bold mb-6">🔧 Technical Implementation</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-purple-300">Frontend Technologies</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Vanilla JavaScript (ES6+)</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Tailwind CSS for styling</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Font Awesome icons</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Responsive design</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Modern CSS animations</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-purple-300">API Integration</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>RESTful API communication</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>X-API-Key authentication</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Error handling & validation</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Loading states & feedback</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Mock responses for demo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-brain text-white"></i>
+                </div>
+                <span class="text-xl font-bold">ACMA Content Creator</span>
+            </div>
+            <p class="text-gray-400">Powered by AI • Built with ❤️ for content creators</p>
+        </div>
+    </footer>
+</body>
+</html>
